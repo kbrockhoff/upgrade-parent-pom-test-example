@@ -1,6 +1,7 @@
 type: specs.openrewrite.org/v1beta/recipe
 name: org.codekaizen.demos.rewrite.UpgradeParentVersion
 displayName: Upgrade Micronaut Framework
+description:  Upgrades all components of Micronaut.
 recipeList:
   - org.openrewrite.maven.UpgradeParentVersion:
       groupId: io.micronaut

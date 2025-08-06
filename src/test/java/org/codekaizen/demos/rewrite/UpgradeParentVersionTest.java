@@ -25,7 +25,7 @@ public class UpgradeParentVersionTest implements RewriteTest {
 
     private String loadFile(String fileName) {
         try {
-            Path path = Paths.get(getClass().getClassLoader().getResource(fileName).toURI());
+            Path path = Paths.get(getClass().getResource(fileName).toURI());
             return Files.readString(path);
         } catch (URISyntaxException | IOException e) {
             fail(e);
