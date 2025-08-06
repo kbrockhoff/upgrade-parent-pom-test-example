@@ -17,7 +17,7 @@ public class UpgradeParentVersionTest implements RewriteTest {
     @Test
     void upgradesParentVersion() {
         rewriteRun(
-          spec -> spec.recipe(getClass().getResourceAsStream("/META-INF/rewrite/framework-upgrade.yml"), "org.codekaizen.demos.rewrite.UpgradeParentVersion"),
+          spec -> spec.recipeFromResources("org.codekaizen.demos.rewrite.UpgradeParentVersion"),
           pomXml(loadFile("parent-pom-upgrade-before.xml"),
             loadFile("parent-pom-upgrade-after.xml"))
         );
