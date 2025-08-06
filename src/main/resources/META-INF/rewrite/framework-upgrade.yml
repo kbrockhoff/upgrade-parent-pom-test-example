@@ -1,0 +1,8 @@
+type: specs.openrewrite.org/v1beta/recipe
+name: org.codekaizen.demos.rewrite.UpgradeParentVersion
+displayName: Upgrade Micronaut Framework
+recipeList:
+  - org.openrewrite.maven.UpgradeParentVersion:
+      groupId: io.micronaut
+      artifactId: micronaut-parent
+      newVersion: 3.10.4
