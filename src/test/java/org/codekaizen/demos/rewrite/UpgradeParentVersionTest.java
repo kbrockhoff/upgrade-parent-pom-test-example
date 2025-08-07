@@ -1,7 +1,11 @@
 package org.codekaizen.demos.rewrite;
 
 import org.junit.jupiter.api.Test;
+import org.openrewrite.InMemoryExecutionContext;
+import org.openrewrite.maven.MavenExecutionContextView;
 import org.openrewrite.test.RewriteTest;
+import org.openrewrite.test.SourceSpec;
+import org.openrewrite.test.SourceSpecs;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -17,7 +21,8 @@ public class UpgradeParentVersionTest implements RewriteTest {
     @Test
     void upgradesParentVersion() {
         rewriteRun(
-          spec -> spec.recipeFromResources("org.codekaizen.demos.rewrite.UpgradeParentVersion"),
+          spec -> spec.recipeFromResources("org.codekaizen.demos.rewrite.UpgradeParentVersion")
+            .expectedCyclesThatMakeChanges(1),
           pomXml(loadFile("parent-pom-upgrade-before.xml"),
             loadFile("parent-pom-upgrade-after.xml"))
         );
